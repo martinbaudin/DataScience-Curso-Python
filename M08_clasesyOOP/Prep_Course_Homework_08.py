@@ -1,85 +1,51 @@
-#!/usr/bin/env python
-# coding: utf-8
+from dataclasses import dataclass as dc
 
-# ## Clases y Programación Orientada a Objetos
+@dc
+class vehiculo:
+    color: str
+    cilindrada: int
+    tipo: str
+    
+    velocidad = 0
+    direccion_actual = 'Norte'
+    
+    def acelerar(self):
+        if self.velocidad < 240 and self.velocidad >= 0:
+            self.velocidad += 60
+            print('Acelerando...')
+        else:
+            print('Velocidad Máxima...')
+            
+    def frenar(self):
+        print('Frenando...')
+        
+    def doblar(self):
+        if self.direccion_actual == 'Norte':
+            self.direccion_actual = 'Oeste'
+        elif self.direccion_actual == 'Oeste':
+            self.direccion_actual = 'Sur'
+        elif self.direccion_actual == 'Sur':
+            self.direccion_actual = 'Este'
+        else:
+            self.direccion_actual = 'Norte'
+        
+    def estado(self):
+        print(f'Velocidad: {self.velocidad} | Direccion: {self.direccion_actual}')
+    
+    def __str__(self):
+        print(f'Color: {self.color} | Cilindrada: {self.cilindrada} | Tipo: {self.tipo}')
 
-# 1) Crear la clase vehículo que contenga los atributos:<br>
-# Color<br>
-# Si es moto, auto, camioneta ó camión<br>
-# Cilindrada del motor
+auto = vehiculo('Rojo', 150, 'Moto')
+auto.__str__()    
 
-# In[1]:
-
-
-
-
-# 2) A la clase Vehiculo creada en el punto 1, agregar los siguientes métodos:<br>
-# Acelerar<br>
-# Frenar<br>
-# Doblar<br>
-
-# In[5]:
-
-
-
-
-
-# 3) Instanciar 3 objetos de la clase vehículo y ejecutar sus métodos, probar luego el resultado
-
-# In[6]:
-
-
-
-
-
-# 4) Agregar a la clase Vehiculo, un método que muestre su estado, es decir, a que velocidad se encuentra y su dirección. Y otro método que muestre color, tipo y cilindrada
-
-# In[12]:
-
-
-
-
-
-
-# In[13]:
-
-
-
-
-
-
-# 5) Crear una clase que permita utilizar las funciones creadas en la práctica del módulo 7<br>
-# Verificar Primo<br>
-# Valor modal<br>
-# Conversión grados<br>
-# Factorial<br>
-
-# In[33]:
-
-
-
-
-
-
-# 6) Probar las funciones incorporadas en la clase del punto 5
-
-# In[28]:
-
-
-
-
-
-# 7) Es necesario que la clase creada en el punto 5 contenga una lista, sobre la cual se aplquen las funciones incorporadas
-
-# In[55]:
-
-
-
-
-# 8) Crear un archivo .py aparte y ubicar allí la clase generada en el punto anterior. Luego realizar la importación del módulo y probar alguna de sus funciones
-
-# In[1]:
-
-
-
-
+# auto.acelerar()
+# auto.acelerar()
+# auto.acelerar()
+# auto.acelerar()
+# auto.acelerar()
+# auto.acelerar()
+# auto.frenar()
+auto.doblar()
+auto.doblar()
+auto.doblar()
+auto.estado()
