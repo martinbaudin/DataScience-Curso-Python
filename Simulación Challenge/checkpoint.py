@@ -1,5 +1,7 @@
 # Importante: No modificar ni el nombre ni los argumetos que reciben las funciones, sólo deben escribir
 # código dentro de las funciones ya definidas.
+from dataclasses import dataclass as dt
+
 
 def Factorial(numero):
     '''
@@ -12,7 +14,18 @@ def Factorial(numero):
         Factorial(-2) debe retornar nulo
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    suma = 1
+    try:
+        if numero >= 0:
+            while numero > 0:
+                suma *= numero
+                numero -= 1
+        else:
+            raise Exception
+    except Exception:
+        print('Error')
+        
+    return f'El factorial es {suma}'
 
 def EsPrimo(valor):
     '''
@@ -26,6 +39,7 @@ def EsPrimo(valor):
         EsPrimo(8) debe retornar False
     '''
     #Tu código aca:
+    
     return 'Funcion incompleta'
     
 def ClaseAnimal(especie, color):
@@ -47,4 +61,27 @@ def ClaseAnimal(especie, color):
         a.CumpliAnios() -> debe devolver 3
     '''
     #Tu código aca:
-    return 'Funcion incompleta'
+    class Animal:
+        def __init__(self,especie,color):
+            self.especie = especie
+            self.color = color
+            self.edad = 0
+        
+        def cumplirAnios(self):
+            self.edad += 1
+            
+        def descripcion(self):
+            print(f'Es un {self.especie} y tiene {self.edad} años')
+            
+    return Animal(especie,color)
+            
+            
+print(Factorial(4))
+  
+#Ejecicio clase Perro          
+# a = ClaseAnimal('Perro','Blanco')
+# a.cumplirAnios()
+# a.cumplirAnios()
+# a.cumplirAnios()
+# a.cumplirAnios()
+# a.descripcion()

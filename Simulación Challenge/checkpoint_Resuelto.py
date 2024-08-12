@@ -74,3 +74,5 @@ def ClaseAnimal(especie, color):
             return self.edad
         
     return Animal(especie,color)
+
+
