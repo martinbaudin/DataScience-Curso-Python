@@ -39,8 +39,17 @@ def EsPrimo(valor):
         EsPrimo(8) debe retornar False
     '''
     #Tu código aca:
-    
-    return 'Funcion incompleta'
+    primo = True
+    try:
+        valor = int(input('Ingrese un numero para ver si es primo: '))
+        for i in range(2,valor):
+            if valor%i == 0:
+                primo = False
+                return None
+        return primo
+        
+    except ValueError:
+        return print('Numero invalido!!') 
     
 def ClaseAnimal(especie, color):
     '''
